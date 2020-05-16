@@ -1,5 +1,8 @@
 import javax.swing.*;
+import javax.swing.text.View;
 import java.awt.*;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class PaintMain extends JFrame{
     JButton btnCircle, btnDiamond, btnMouse, btnRectangle, btnTriangle;
@@ -7,16 +10,16 @@ public class PaintMain extends JFrame{
     JPanel panelDraw, panelMain;
 
     public PaintMain(){
+        setBackground(Color.darkGray);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         setLocationRelativeTo(null);
-        setSize(900, 750);
+        setSize(510, 600);
         setTitle("Paint");
 
         panelMain = new JPanel();
-        panelMain.setBackground(Color.GRAY);
         panelMain.setLayout(null);
-        panelMain.setBounds(0, 0, 510, 600);
+        panelMain.setBounds(0, 0, 510, 130);
 
         btnCircle = new JButton("원");
         btnDiamond = new JButton("마름모");
@@ -51,11 +54,19 @@ public class PaintMain extends JFrame{
         panelMain.add(btnRotate);
         panelMain.add(btnSize);
 
+        panelDraw = new JPanel();
+        panelDraw.setBackground(Color.white);
+        panelDraw.setLayout(null);
+        panelDraw.setBounds(10, 130, 490, 460);
+
         add(panelMain);
+        add(panelDraw);
         setVisible(true);
     }
 
     public static void main(String[] arg0){
+        ArrayList<Shape> shapeList = new ArrayList<>();
+
         new PaintMain();
     }
 }
