@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.text.View;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -68,5 +70,17 @@ public class PaintMain extends JFrame{
         ArrayList<Shape> shapeList = new ArrayList<>();
 
         new PaintMain();
+    }
+
+    public class drawPen implements MouseMotionListener{
+        @Override
+        public void mouseDragged(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseMoved(MouseEvent e) {
+
+        }
     }
 }
