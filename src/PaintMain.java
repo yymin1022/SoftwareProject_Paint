@@ -1,15 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.font.ShapeGraphicAttribute;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PaintMain extends JFrame{
     int penStartX, penStartY, penEndX, penEndY;
     int shapeType = 3;
 /*  0 : Circle
-    1 : Diamone
+    1 : Diamond
     2 : Line (Mouse)
     3 : Rectangle
     4 : Triangle
@@ -137,11 +135,20 @@ public class PaintMain extends JFrame{
                     circle.x1 = e.getX();
                     circle.y1 = e.getY();
                     circle.color = Color.black;
+                    circle.graphics = graphics;
+                    circle.graphics2D = graphics2D;
                     circle.Draw(graphics2D);
                     break;
                 case 1:
                     break;
                 case 3:
+                    Rectangle rectangle = new Rectangle();
+                    rectangle.x1 = e.getX();
+                    rectangle.y1 = e.getY();
+                    rectangle.color = Color.black;
+                    rectangle.graphics = graphics;
+                    rectangle.graphics2D = graphics2D;
+                    rectangle.Draw(graphics2D);
                     break;
                 case 4:
                     break;
@@ -175,7 +182,9 @@ public class PaintMain extends JFrame{
                 panelDraw.addMouseMotionListener(drawPenFirstListener);
                 panelDraw.addMouseMotionListener(drawPenListener);
             }else if(e.getSource() == btnRectangle){
-                JOptionPane.showMessageDialog(null, "준비중입니다.", "", JOptionPane.WARNING_MESSAGE);
+                shapeType = 3;
+                panelDraw.removeMouseMotionListener(drawPenListener);
+                panelDraw.addMouseListener(drawShapeListener);
             }else if(e.getSource() == btnTriangle){
                 JOptionPane.showMessageDialog(null, "준비중입니다.", "", JOptionPane.WARNING_MESSAGE);
             }
@@ -198,24 +207,4 @@ public class PaintMain extends JFrame{
             }
         }
     };
-
-    public abstract class Shape implements Serializable{
-        Color color;
-        int x1, y1;
-
-        abstract void Draw(Graphics graphics);
-    }
-
-    public class Circle extends Shape{
-        Circle(){
-            super();
-        }
-
-        @Override
-        void Draw(Graphics graphics) {
-            graphics2D = (Graphics2D)graphics;
-            graphics2D.setColor(color);
-            graphics2D.drawOval(x1 - 50, y1 + 50, 100, 100);
-        }
-    }
 }
