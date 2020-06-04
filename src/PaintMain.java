@@ -1,3 +1,6 @@
+import model.Circle;
+import model.Shape;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -6,10 +9,10 @@ import java.util.ArrayList;
 public class PaintMain extends JFrame{
     int penStartX, penStartY, penEndX, penEndY;
     int shapeType = 3;
-/*  0 : Circle
+/*  0 : model.Circle
     1 : Diamond
     2 : Line (Mouse)
-    3 : Rectangle
+    3 : model.Rectangle
     4 : Triangle
  */
 
@@ -142,7 +145,7 @@ public class PaintMain extends JFrame{
                 case 1:
                     break;
                 case 3:
-                    Rectangle rectangle = new Rectangle();
+                    model.Rectangle rectangle = new model.Rectangle();
                     rectangle.x1 = e.getX();
                     rectangle.y1 = e.getY();
                     rectangle.color = Color.black;
