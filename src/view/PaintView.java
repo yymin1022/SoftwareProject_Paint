@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PaintView {
-    JButton btnCircle, btnDiamond, btnMouse, btnRectangle, btnTriangle;
-    JButton btnColor, btnJPEG, btnMove, btnRotate, btnSize;
-    JFrame frameMain;
-    JPanel panelDraw, panelButton;
+    public JButton btnCircle, btnDiamond, btnMouse, btnRectangle, btnTriangle;
+    public JButton btnColor, btnJPEG, btnMove, btnRotate, btnSize;
+    public JFrame frameMain;
+    public JPanel panelDraw, panelButton;
 
     public PaintView(){
         frameMain = new JFrame();
