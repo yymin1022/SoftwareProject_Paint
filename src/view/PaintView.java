@@ -37,18 +37,6 @@ public class PaintView {
         btnRotate.setBounds(110, 70, 90, 50);
         btnSize.setBounds(310, 70, 90, 50);
 
-//        btnCircle.addActionListener(drawButtonClickListener);
-//        btnDiamond.addActionListener(drawButtonClickListener);
-//        btnMouse.addActionListener(drawButtonClickListener);
-//        btnRectangle.addActionListener(drawButtonClickListener);
-//        btnTriangle.addActionListener(drawButtonClickListener);
-//
-//        btnColor.addActionListener(buttonClickListener);
-//        btnJPEG.addActionListener(buttonClickListener);
-//        btnMove.addActionListener(buttonClickListener);
-//        btnRotate.addActionListener(buttonClickListener);
-//        btnSize.addActionListener(buttonClickListener);
-
         panelButton.add(btnCircle);
         panelButton.add(btnDiamond);
         panelButton.add(btnMouse);
