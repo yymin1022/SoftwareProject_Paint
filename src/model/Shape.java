@@ -4,11 +4,12 @@ import java.awt.*;
 import java.io.Serializable;
 
 public abstract class Shape implements Serializable {
-    int x1, y1;
+    public double startX, startY;
+    public double endX, endY;
+    public int width;
+    public int height;
 
-    Color color;
-    Graphics graphics;
-    Graphics2D graphics2D;
+    public Color color;
 
     abstract void Draw(Graphics graphics);
 }
