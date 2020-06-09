@@ -6,6 +6,7 @@ import java.io.Serializable;
 public abstract class Shape implements Serializable {
     public double startX, startY;
     public double endX, endY;
+    public double rotateDegree;
     public int width;
     public int height;
 
@@ -25,6 +26,10 @@ public abstract class Shape implements Serializable {
 
     public double getEndY(){
         return endY;
+    }
+
+    public void setRotateDegree(double rotateDegree){
+        this.rotateDegree = rotateDegree;
     }
 
     public void setPoints(double startX, double startY, double endX, double endY){
