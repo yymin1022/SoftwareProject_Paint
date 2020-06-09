@@ -55,5 +55,7 @@ public abstract class Shape implements Serializable {
         this.height = (int)Math.abs(endY - startY);
     }
 
-    abstract void Draw(Graphics graphics);
+    public abstract void drawShape(Graphics graphics);
+    public abstract void moveShape(double movedX, double movedY);
+    public abstract void resizeShape(double resizedWidth, double resizedHeight);
 }
