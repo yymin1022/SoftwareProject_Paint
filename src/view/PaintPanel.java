@@ -7,16 +7,17 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class PaintPanel extends JPanel{
-    ArrayList<Shape> shapeList;
+    ArrayList<Shape> shapeArrayList;
 
-    public PaintPanel(ArrayList<Shape> shapeList){
-        this.shapeList = shapeList;
+    public PaintPanel(ArrayList<Shape> shapeArrayList){
+        this.shapeArrayList = shapeArrayList;
     }
 
     @Override
     public void paint(Graphics graphics){
         graphics.setColor(Color.WHITE);
-        for(Shape shapes : shapeList){
+        graphics.fillRect(0,0,this.getWidth(),this.getHeight());
+        for(Shape shapes : shapeArrayList){
             shapes.drawShape(graphics);
         }
     }

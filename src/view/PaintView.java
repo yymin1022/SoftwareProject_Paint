@@ -2,14 +2,20 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PaintView {
+    public ArrayList<model.Shape> shapeArrayList;
     public JButton btnCircle, btnDiamond, btnMouse, btnRectangle, btnTriangle;
     public JButton btnColor, btnJPEG, btnMove, btnRotate, btnSize;
     public JFrame frameMain;
-    public JPanel panelDraw, panelButton;
+    public JPanel panelButton;
 
-    public PaintView(){
+    public PaintPanel panelDraw;
+
+    public PaintView(ArrayList<model.Shape> shapeArrayList){
+        this.shapeArrayList = shapeArrayList;
+
         frameMain = new JFrame();
         panelButton = new JPanel();
         panelButton.setLayout(null);
@@ -48,7 +54,7 @@ public class PaintView {
         panelButton.add(btnRotate);
         panelButton.add(btnSize);
 
-        panelDraw = new JPanel();
+        panelDraw = new PaintPanel(shapeArrayList);
         panelDraw.setBackground(Color.white);
         panelDraw.setLayout(null);
         panelDraw.setBounds(10, 130, 490, 460);
@@ -61,5 +67,9 @@ public class PaintView {
 
         frameMain.getContentPane().add(panelButton);
         frameMain.getContentPane().add(panelDraw);
+    }
+
+    public PaintPanel getPaintPanel(){
+        return panelDraw;
     }
 }
