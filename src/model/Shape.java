@@ -12,6 +12,10 @@ public abstract class Shape implements Serializable {
 
     public Color color;
 
+    public boolean isRotated(){
+        return rotateDegree == 0;
+    }
+
     public double getStartX(){
         return startX;
     }
@@ -57,5 +61,5 @@ public abstract class Shape implements Serializable {
 
     public abstract void drawShape(Graphics graphics);
     public abstract void moveShape(double movedX, double movedY);
-    public abstract void resizeShape(double resizedWidth, double resizedHeight);
+    public abstract void resizeShape(double resizedX, double resizedY);
 }
