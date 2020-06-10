@@ -8,6 +8,8 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PaintController{
+    int btnState = ButtonState.BTN_MOUSE;
+
     public double startX;
     public double startY;
     public double endX;
@@ -26,62 +28,62 @@ public class PaintController{
         paintView.btnCircle.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_CIRCLE;
             }
         });
         paintView.btnDiamond.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_DIAMOND;
             }
         });
         paintView.btnMouse.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_MOUSE;
             }
         });
         paintView.btnRectangle.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_RECTANGLE;
             }
         });
         paintView.btnTriangle.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_TRIANGLE;
             }
         });
 
         paintView.btnColor.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_COLOR;
             }
         });
         paintView.btnJPEG.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_JPEG;
             }
         });
         paintView.btnMove.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_MOVE;
             }
         });
         paintView.btnRotate.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_ROTATE;
             }
         });
         paintView.btnSize.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-
+                btnState = ButtonState.BTN_SIZE;
             }
         });
     }
