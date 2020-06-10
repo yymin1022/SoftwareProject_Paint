@@ -10,7 +10,6 @@ public class PaintView {
     public JButton btnColor, btnJPEG, btnMove, btnRotate, btnSize;
     public JFrame frameMain;
     public JPanel panelButton;
-
     public PaintPanel panelDraw;
 
     public PaintView(ArrayList<model.Shape> shapeArrayList){

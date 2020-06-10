@@ -4,10 +4,7 @@ import model.Shape;
 import view.PaintPanel;
 import view.PaintView;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PaintController{
@@ -25,6 +22,68 @@ public class PaintController{
         this.paintPanel = paintView.getPaintPanel();
         this.paintView = paintView;
         this.shapeArrayList = shapeArrayList;
+
+        paintView.btnCircle.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnDiamond.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnMouse.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnRectangle.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnTriangle.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+
+        paintView.btnColor.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnJPEG.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnMove.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnRotate.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
+        paintView.btnSize.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+
+            }
+        });
     }
 
     public class panelMouseListener implements MouseListener, MouseMotionListener{
