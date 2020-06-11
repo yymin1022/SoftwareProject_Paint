@@ -1,5 +1,6 @@
 package controller;
 
+import model.Circle;
 import model.Shape;
 import view.PaintPanel;
 import view.PaintView;
@@ -8,7 +9,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PaintController{
-    int btnState = ButtonState.BTN_MOUSE;
+    ButtonState btnState = ButtonState.BTN_MOUSE;
 
     public double startX;
     public double startY;
@@ -86,6 +87,30 @@ public class PaintController{
                 btnState = ButtonState.BTN_SIZE;
             }
         });
+    }
+
+    public enum ButtonState{
+        BTN_CIRCLE{
+
+        }, BTN_DIAMOND{
+
+        }, BTN_MOUSE{
+
+        }, BTN_RECTANGLE{
+
+        }, BTN_TRIANGLE{
+
+        }, BTN_COLOR{
+
+        }, BTN_JPEG{
+
+        }, BTN_MOVE{
+
+        }, BTN_ROTATE{
+
+        }, BTN_SIZE{
+
+        }
     }
 
     public class panelMouseListener implements MouseListener, MouseMotionListener{
