@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Circle extends Shape{
-    Circle(){
+    public Circle(){
         super();
     }
 

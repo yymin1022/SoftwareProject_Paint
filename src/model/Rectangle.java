@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Rectangle extends Shape{
-    Rectangle(){
+    public Rectangle(){
         super();
     }
 

@@ -91,26 +91,109 @@ public class PaintController{
 
     public enum ButtonState{
         BTN_CIRCLE{
+            @Override
+            public Shape addShape() {
+                return new Circle();
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_DIAMOND{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_MOUSE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_RECTANGLE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_TRIANGLE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_COLOR{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_JPEG{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_MOVE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_ROTATE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
         }, BTN_SIZE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
 
-        }
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
+        };
+
+        public abstract Shape addShape();
+        public abstract void getAction(Shape selectedShape, double startX, double startY, double endX, double endY);
     }
 
     public class panelMouseListener implements MouseListener, MouseMotionListener{
