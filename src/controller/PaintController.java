@@ -1,6 +1,7 @@
 package controller;
 
 import model.Circle;
+import model.Rectangle;
 import model.Shape;
 import view.PaintPanel;
 import view.PaintView;
@@ -123,7 +124,7 @@ public class PaintController{
         }, BTN_RECTANGLE{
             @Override
             public Shape addShape() {
-                return null;
+                return new Rectangle();
             }
 
             @Override
@@ -168,7 +169,7 @@ public class PaintController{
 
             @Override
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
+                selectedShape.moveShape(startX - endX, startY - endY);
             }
         }, BTN_ROTATE{
             @Override
@@ -188,7 +189,7 @@ public class PaintController{
 
             @Override
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
+                selectedShape.resizeShape(startX - endX, startY - endY);
             }
         };
 
