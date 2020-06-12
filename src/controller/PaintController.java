@@ -209,7 +209,14 @@ public class PaintController{
 
         @Override
         public void mousePressed(MouseEvent e){
+            startX = e.getX();
+            startY = e.getY();
 
+            if(btnState.addShape() != null){
+                selectedShape = btnState.addShape();
+                selectedShape.setPoints(startX, startY, endX, endY);
+                shapeArrayList.add(selectedShape);
+            }
         }
 
         @Override
@@ -229,7 +236,15 @@ public class PaintController{
 
         @Override
         public void mouseDragged(MouseEvent e){
+            endX = e.getX();
+            endY = e.getY();
 
+            if(btnState != null){
+                selectedShape =btnState.addShape();
+                selectedShape.setPoints(startX, startY, endX, endY);
+
+                startY = endY;
+            }
         }
 
         @Override
