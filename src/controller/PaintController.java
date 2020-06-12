@@ -27,6 +27,9 @@ public class PaintController{
         this.paintView = paintView;
         this.shapeArrayList = shapeArrayList;
 
+        paintPanel.addMouseListener(new panelMouseListener());
+        paintPanel.addMouseMotionListener(new panelMouseListener());
+
         paintView.btnCircle.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -179,7 +182,8 @@ public class PaintController{
 
             @Override
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
+                double centerX = (selectedShape.getStartX() + selectedShape.getEndX()) / 2;
+                double centerY = (selectedShape.getStartY() + selectedShape.getEndY()) / 2;
             }
         }, BTN_SIZE{
             @Override
