@@ -2,7 +2,6 @@ import controller.PaintController;
 import model.Shape;
 import view.PaintView;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 public class PaintMain{
