@@ -15,8 +15,8 @@ public class PaintPanel extends JPanel{
 
     @Override
     public void paint(Graphics graphics){
-        graphics.setColor(Color.WHITE);
-        graphics.fillRect(0,0,this.getWidth(),this.getHeight());
+//        graphics.setColor(Color.WHITE);
+//        graphics.fillRect(0,0, this.getWidth(),this.getHeight());
         for(Shape shapes : shapeArrayList){
             shapes.drawShape(graphics);
         }

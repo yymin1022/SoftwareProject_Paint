@@ -54,11 +54,9 @@ public class PaintView {
         panelButton.add(btnSize);
 
         panelDraw = new PaintPanel(shapeArrayList);
-        panelDraw.setBackground(Color.white);
-        panelDraw.setLayout(null);
-        panelDraw.setBounds(10, 130, 490, 460);
+        panelDraw.setBounds(10, 150, 440, 510);
+        panelDraw.setBackground(Color.WHITE);
 
-        frameMain.setBackground(Color.DARK_GRAY);
         frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameMain.setSize(530, 600);
         frameMain.setTitle("Paint");
@@ -66,6 +64,7 @@ public class PaintView {
 
         frameMain.getContentPane().add(panelButton);
         frameMain.getContentPane().add(panelDraw);
+        frameMain.getContentPane().setBackground(Color.DARK_GRAY);
     }
 
     public PaintPanel getPaintPanel(){
