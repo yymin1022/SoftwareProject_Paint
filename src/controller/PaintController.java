@@ -207,7 +207,7 @@ public class PaintController{
         @Override
         public void mouseClicked(MouseEvent e){
             for(Shape currentShape : shapeArrayList){
-                if(selectedShape.isInside(e.getX(), e.getY())){
+                if(currentShape.isInside(e.getX(), e.getY())){
                     selectedShape = currentShape;
                 }
             }
@@ -219,7 +219,7 @@ public class PaintController{
             startY = e.getY();
 
             for(Shape currentShape : shapeArrayList){
-                if(selectedShape.isInside(e.getX(), e.getY())){
+                if(currentShape.isInside(e.getX(), e.getY())){
                     selectedShape = currentShape;
                 }
             }
@@ -251,11 +251,18 @@ public class PaintController{
             endX = e.getX();
             endY = e.getY();
 
-            if(btnState != null){
+            if(btnState.addShape() != null){
                 selectedShape = btnState.addShape();
                 selectedShape.setPoints(startX, startY, endX, endY);
 
                 startY = endY;
+            }else{
+                btnState.getAction(selectedShape, endX, endY, startX, startY);
+
+                if(btnState != ButtonState.BTN_ROTATE){
+                    startX = e.getX();
+                    startY = e.getY();
+                }
             }
         }
 

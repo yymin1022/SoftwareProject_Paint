@@ -20,5 +20,6 @@ public class PaintPanel extends JPanel{
         for(Shape shapes : shapeArrayList){
             shapes.drawShape(graphics);
         }
+        repaint();
     }
 }
