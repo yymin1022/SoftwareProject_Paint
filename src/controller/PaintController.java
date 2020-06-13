@@ -9,6 +9,7 @@ import view.PaintView;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PaintController{
     ButtonState btnState = ButtonState.BTN_MOUSE;
@@ -186,6 +187,11 @@ public class PaintController{
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
                 double centerX = (selectedShape.getStartX() + selectedShape.getEndX()) / 2;
                 double centerY = (selectedShape.getStartY() + selectedShape.getEndY()) / 2;
+
+                double angle1 = Math.atan2(startY - centerY, startX - centerX);
+                double angle2 = Math.atan2(endY - centerY, endX - centerX);
+
+                selectedShape.setRotateDegree(angle1 - angle2);
             }
         }, BTN_SIZE{
             @Override
