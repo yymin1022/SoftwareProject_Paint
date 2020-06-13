@@ -16,9 +16,8 @@ public class PaintView {
         this.shapeArrayList = shapeArrayList;
 
         frameMain = new JFrame();
-        panelButton = new JPanel();
-        panelButton.setLayout(null);
-        panelButton.setBounds(0, 0, 510, 130);
+        panelButton = new JPanel(new GridLayout(2, 0));
+        panelDraw = new PaintPanel(shapeArrayList);
 
         btnCircle = new JButton("원");
         btnDiamond = new JButton("마름모");
@@ -53,17 +52,13 @@ public class PaintView {
         panelButton.add(btnRotate);
         panelButton.add(btnSize);
 
-        panelDraw = new PaintPanel(shapeArrayList);
-        panelDraw.setBounds(10, 150, 440, 510);
-        panelDraw.setBackground(Color.WHITE);
-
         frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameMain.setSize(530, 600);
         frameMain.setTitle("Paint");
         frameMain.setVisible(true);
 
-        frameMain.getContentPane().add(panelButton);
-        frameMain.getContentPane().add(panelDraw);
+        frameMain.getContentPane().add(BorderLayout.NORTH, panelButton);
+        frameMain.getContentPane().add(BorderLayout.CENTER, panelDraw);
         frameMain.getContentPane().setBackground(Color.DARK_GRAY);
     }
 
