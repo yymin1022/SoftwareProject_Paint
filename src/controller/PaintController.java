@@ -217,6 +217,8 @@ public class PaintController{
                 selectedShape.setPoints(startX, startY, endX, endY);
                 shapeArrayList.add(selectedShape);
             }
+
+            System.out.println(String.format("startX : %f, startY : %f", startX, startY));
         }
 
         @Override
@@ -245,6 +247,8 @@ public class PaintController{
 
                 startY = endY;
             }
+
+            System.out.println(String.format("endX : %f, endY : %f", endX, endY));
         }
 
         @Override

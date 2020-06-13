@@ -10,7 +10,13 @@ public abstract class Shape implements Serializable {
     public int width;
     public int height;
 
-    public Color color;
+    public Color color = Color.BLACK;
+
+    public boolean isInside(double pointX, double pointY){
+        if (pointX >= this.startX && pointX <= this.endX || pointX <= this.startX && pointX >= this.endX)
+                return (pointY >= this.startY && pointY <= this.endY || pointY <= this.startY && pointY >= this.endY);
+        return false;
+    }
 
     public boolean isRotated(){
         return rotateDegree == 0;
