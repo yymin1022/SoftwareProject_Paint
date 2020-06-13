@@ -10,7 +10,11 @@ public abstract class Shape implements Serializable {
     public int width;
     public int height;
 
-    public Color color = Color.BLACK;
+    public Color color;
+
+    public Shape(Color color){
+        this.color = color;
+    }
 
     public boolean isInside(double pointX, double pointY){
         if (pointX >= this.startX && pointX <= this.endX || pointX <= this.startX && pointX >= this.endX)

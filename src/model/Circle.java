@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Circle extends Shape{
-    public Circle(){
-        super();
+    public Circle(Color settedColor){
+        super(settedColor);
     }
 
     @Override

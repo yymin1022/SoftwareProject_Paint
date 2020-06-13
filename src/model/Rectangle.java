@@ -4,8 +4,8 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Rectangle extends Shape{
-    public Rectangle(){
-        super();
+    public Rectangle(Color settedColor){
+        super(settedColor);
     }
 
     @Override

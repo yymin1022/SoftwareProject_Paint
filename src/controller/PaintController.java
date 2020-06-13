@@ -6,6 +6,7 @@ import model.Shape;
 import view.PaintPanel;
 import view.PaintView;
 
+import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class PaintController{
     public PaintPanel paintPanel;
     public PaintView paintView;
     public Shape selectedShape;
+    public static Color settedColor = Color.BLACK;
 
     public PaintController(ArrayList<Shape> shapeArrayList, PaintView paintView){
         this.paintPanel = paintView.getPaintPanel();
@@ -97,7 +99,7 @@ public class PaintController{
         BTN_CIRCLE{
             @Override
             public Shape addShape() {
-                return new Circle();
+                return new Circle(settedColor);
             }
 
             @Override
@@ -127,7 +129,7 @@ public class PaintController{
         }, BTN_RECTANGLE{
             @Override
             public Shape addShape() {
-                return new Rectangle();
+                return new Rectangle(settedColor);
             }
 
             @Override
@@ -204,7 +206,11 @@ public class PaintController{
     public class panelMouseListener implements MouseListener, MouseMotionListener{
         @Override
         public void mouseClicked(MouseEvent e){
-
+            for(Shape currentShape : shapeArrayList){
+                if(selectedShape.isInside(e.getX(), e.getY())){
+                    selectedShape = currentShape;
+                }
+            }
         }
 
         @Override
@@ -212,13 +218,17 @@ public class PaintController{
             startX = e.getX();
             startY = e.getY();
 
+            for(Shape currentShape : shapeArrayList){
+                if(selectedShape.isInside(e.getX(), e.getY())){
+                    selectedShape = currentShape;
+                }
+            }
+
             if(btnState.addShape() != null){
                 selectedShape = btnState.addShape();
                 selectedShape.setPoints(startX, startY, endX, endY);
                 shapeArrayList.add(selectedShape);
             }
-
-            System.out.println(String.format("startX : %f, startY : %f", startX, startY));
         }
 
         @Override
@@ -242,13 +252,11 @@ public class PaintController{
             endY = e.getY();
 
             if(btnState != null){
-                selectedShape =btnState.addShape();
+                selectedShape = btnState.addShape();
                 selectedShape.setPoints(startX, startY, endX, endY);
 
                 startY = endY;
             }
-
-            System.out.println(String.format("endX : %f, endY : %f", endX, endY));
         }
 
         @Override
