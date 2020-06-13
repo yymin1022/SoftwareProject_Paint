@@ -3,23 +3,26 @@ package model;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
-public class Rectangle extends Shape{
-    public Rectangle(Color settedColor){
+public class Triangle extends Shape{
+    public Triangle(Color settedColor){
         super(settedColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
+        int[] xPoints = {(int)(startX+endX)/2, (int)startX, (int)endX};
+        int[] yPoints = {(int)startY, (int)endY, (int)endY};
+
         graphics.setColor(color);
 
         Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
 
-        if(this.isRotated()) {
-            graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
+        if(this.isRotated()){
+            graphics2D.rotate(rotateDegree, (startX+endX)/2, (startY+endY)/2);
         }
 
-        graphics.drawRect((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
+        graphics.drawPolygon(xPoints, yPoints, 3);
         graphics2D.setTransform(transform);
     }
 
