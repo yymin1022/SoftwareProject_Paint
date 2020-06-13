@@ -226,7 +226,7 @@ public class PaintController{
 
             if(btnState.addShape() != null){
                 selectedShape = btnState.addShape();
-                selectedShape.setPoints(startX, startY, endX, endY);
+                selectedShape.setPoints(startX, startY, startX, startY);
                 shapeArrayList.add(selectedShape);
             }
         }
@@ -252,10 +252,7 @@ public class PaintController{
             endY = e.getY();
 
             if(btnState.addShape() != null){
-                selectedShape = btnState.addShape();
                 selectedShape.setPoints(startX, startY, endX, endY);
-
-                startY = endY;
             }else{
                 btnState.getAction(selectedShape, endX, endY, startX, startY);
 
@@ -264,6 +261,8 @@ public class PaintController{
                     startY = e.getY();
                 }
             }
+
+            System.out.println(String.format("Current Point : %d, %d", e.getX(), e.getY()));
         }
 
         @Override

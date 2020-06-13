@@ -11,8 +11,10 @@ public class Circle extends Shape{
     @Override
     public void drawShape(Graphics graphics){
         graphics.setColor(color);
+
         Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
+
         if(this.isRotated()){
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
