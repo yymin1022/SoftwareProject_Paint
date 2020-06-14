@@ -13,7 +13,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class PaintController{
-    ButtonState btnState = ButtonState.BTN_MOUSE;
+    ButtonState btnState = ButtonState.BTN_CIRCLE;
 
     public double startX;
     public double startY;
