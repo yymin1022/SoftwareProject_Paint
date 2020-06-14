@@ -5,16 +5,14 @@ import java.awt.geom.AffineTransform;
 
 public class Diamond extends Shape{
 
-    public Diamond(Color currentColor){
-        super(currentColor);
+    public Diamond(Color settedLineColor, Color settedFillColor){
+        super(settedLineColor, settedFillColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
         int[] xPoints = {(int)(startX + endX) / 2, (int)endX, (int)(startX + endX) / 2, (int)startX};
         int[] yPoints = {(int)startY, (int)(startY + endY) / 2, (int)endY,(int)(startY + endY) / 2};
-
-        graphics.setColor(color);
 
         Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
@@ -23,7 +21,9 @@ public class Diamond extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics.drawPolygon(xPoints, yPoints, 4);
+        graphics2D.setColor(lineColor);
+        graphics2D.fillPolygon(xPoints, yPoints, 4);
+        graphics2D.drawPolygon(xPoints, yPoints, 4);
         graphics2D.setTransform(transform);
     }
 

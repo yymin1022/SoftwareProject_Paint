@@ -9,10 +9,12 @@ public abstract class Shape{
     public int width;
     public int height;
 
-    public Color color;
+    public Color lineColor;
+    public Color fillColor;
 
-    public Shape(Color color){
-        this.color = color;
+    public Shape(Color lineColor, Color fillColor){
+        this.lineColor = lineColor;
+        this.fillColor = fillColor;
     }
 
     public boolean isInside(double pointX, double pointY){
@@ -41,8 +43,9 @@ public abstract class Shape{
         return endY;
     }
 
-    public void setColor(Color color){
-        this.color = color;
+    public void setColor(Color lineColor, Color fillColor){
+        this.lineColor = lineColor;
+        this.fillColor = fillColor;
     }
 
     public void setRotateDegree(double rotateDegree){

@@ -4,16 +4,14 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Triangle extends Shape{
-    public Triangle(Color settedColor){
-        super(settedColor);
+    public Triangle(Color settedLineColor, Color settedFillColor){
+        super(settedLineColor, settedFillColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
         int[] xPoints = {(int)(startX + endX) / 2, (int)startX, (int)endX};
         int[] yPoints = {(int)startY, (int)endY, (int)endY};
-
-        graphics.setColor(color);
 
         Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
@@ -22,7 +20,9 @@ public class Triangle extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics.drawPolygon(xPoints, yPoints, 3);
+        graphics2D.setColor(lineColor);
+        graphics2D.fillPolygon(xPoints, yPoints, 3);
+        graphics2D.drawPolygon(xPoints, yPoints, 3);
         graphics2D.setTransform(transform);
     }
 

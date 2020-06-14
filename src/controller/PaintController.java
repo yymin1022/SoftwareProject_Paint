@@ -1,7 +1,6 @@
 package controller;
 
 import com.bric.colorpicker.ColorPicker;
-import com.bric.colorpicker.ColorPickerDialog;
 import model.*;
 import model.Rectangle;
 import model.Shape;
@@ -25,7 +24,8 @@ public class PaintController{
     public PaintPanel paintPanel;
     public PaintView paintView;
     public Shape selectedShape;
-    public static Color settedColor = Color.BLACK;
+    public static Color settedLineColor = Color.BLACK;
+    public static Color settedFillColor = Color.WHITE;
 
     public PaintController(ArrayList<Shape> shapeArrayList, PaintView paintView){
         this.paintPanel = paintView.getPaintPanel();
@@ -102,7 +102,7 @@ public class PaintController{
         BTN_CIRCLE{
             @Override
             public Shape addShape() {
-                return new Circle(settedColor);
+                return new Circle(settedLineColor, settedFillColor);
             }
 
             @Override
@@ -112,7 +112,7 @@ public class PaintController{
         }, BTN_DIAMOND{
             @Override
             public Shape addShape() {
-                return new Diamond(settedColor);
+                return new Diamond(settedLineColor, settedFillColor);
             }
 
             @Override
@@ -132,7 +132,7 @@ public class PaintController{
         }, BTN_RECTANGLE{
             @Override
             public Shape addShape() {
-                return new Rectangle(settedColor);
+                return new Rectangle(settedLineColor, settedFillColor);
             }
 
             @Override
@@ -142,7 +142,7 @@ public class PaintController{
         }, BTN_TRIANGLE{
             @Override
             public Shape addShape() {
-                return new Triangle(settedColor);
+                return new Triangle(settedLineColor, settedFillColor);
             }
 
             @Override

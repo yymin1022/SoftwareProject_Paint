@@ -4,14 +4,12 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Circle extends Shape{
-    public Circle(Color settedColor){
-        super(settedColor);
+    public Circle(Color settedLineColor, Color settedFillColor){
+        super(settedLineColor, settedFillColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
-        graphics.setColor(color);
-
         Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
 
@@ -19,6 +17,8 @@ public class Circle extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
+        graphics2D.setColor(lineColor);
+        graphics2D.fillOval((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
         graphics2D.drawOval((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
         graphics2D.setTransform(transform);
     }

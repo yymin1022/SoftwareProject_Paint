@@ -4,22 +4,22 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 
 public class Rectangle extends Shape{
-    public Rectangle(Color settedColor){
-        super(settedColor);
+    public Rectangle(Color settedLineColor, Color settedFillColor){
+        super(settedLineColor, settedFillColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
-        graphics.setColor(color);
-
-        Graphics2D graphics2D = (Graphics2D)graphics;
+       Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
 
         if(this.isRotated()) {
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics.drawRect((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
+        graphics2D.setColor(lineColor);
+        graphics2D.fillRect((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
+        graphics2D.drawRect((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
         graphics2D.setTransform(transform);
     }
 
