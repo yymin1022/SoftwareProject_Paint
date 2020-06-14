@@ -24,7 +24,7 @@ public class PaintView {
         btnMouse = new JButton("곡선");
         btnRectangle = new JButton("사각형");
         btnTriangle = new JButton("삼각형");
-        btnColor = new JButton("색상");
+        btnColor = new JButton("테두리/색상");
         btnJPEG = new JButton("JPEG");
         btnMove = new JButton("이동");
         btnRotate = new JButton("회전");
