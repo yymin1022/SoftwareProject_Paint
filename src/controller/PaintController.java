@@ -37,67 +37,17 @@ public class PaintController{
         paintPanel.addMouseListener(new panelMouseListener());
         paintPanel.addMouseMotionListener(new panelMouseListener());
 
-        paintView.btnCircle.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_CIRCLE;
-            }
-        });
-        paintView.btnDiamond.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_DIAMOND;
-            }
-        });
-        paintView.btnMouse.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_MOUSE;
-            }
-        });
-        paintView.btnRectangle.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_RECTANGLE;
-            }
-        });
-        paintView.btnTriangle.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_TRIANGLE;
-            }
-        });
+        paintView.btnCircle.addActionListener(e -> btnState = ButtonState.BTN_CIRCLE);
+        paintView.btnDiamond.addActionListener(e -> btnState = ButtonState.BTN_DIAMOND);
+        paintView.btnMouse.addActionListener(e -> btnState = ButtonState.BTN_MOUSE);
+        paintView.btnRectangle.addActionListener(e -> btnState = ButtonState.BTN_RECTANGLE);
+        paintView.btnTriangle.addActionListener(e -> btnState = ButtonState.BTN_TRIANGLE);
 
-        paintView.btnColor.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_COLOR;
-            }
-        });
-        paintView.btnJPEG.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_JPEG;
-            }
-        });
-        paintView.btnMove.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_MOVE;
-            }
-        });
-        paintView.btnRotate.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_ROTATE;
-            }
-        });
-        paintView.btnSize.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                btnState = ButtonState.BTN_SIZE;
-            }
-        });
+        paintView.btnColor.addActionListener(e -> btnState = ButtonState.BTN_COLOR);
+        paintView.btnJPEG.addActionListener(e -> btnState = ButtonState.BTN_JPEG);
+        paintView.btnMove.addActionListener(e -> btnState = ButtonState.BTN_MOVE);
+        paintView.btnRotate.addActionListener(e -> btnState = ButtonState.BTN_ROTATE);
+        paintView.btnSize.addActionListener(e -> btnState = ButtonState.BTN_SIZE);
     }
 
     public enum ButtonState{
@@ -289,26 +239,11 @@ class ColorTypeFrame extends JFrame{
         JButton btnFillColor = new JButton("면 색상");
         JSlider sliderLineThick = new JSlider(1, 100, 10);
 
-        btnLineColor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new LineColorPickerFrame(selectedShape);
-            }
-        });
-        btnFillColor.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new FillColorPickerFrame(selectedShape);
-            }
-        });
+        btnLineColor.addActionListener(e -> new LineColorPickerFrame(selectedShape));
+        btnFillColor.addActionListener(e -> new FillColorPickerFrame(selectedShape));
         sliderLineThick.setMajorTickSpacing(10);
         sliderLineThick.setPaintTicks(true);
-        sliderLineThick.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                selectedShape.setLineThick(sliderLineThick.getValue());
-            }
-        });
+        sliderLineThick.addChangeListener(e -> selectedShape.setLineThick(sliderLineThick.getValue()));
 
         panelColorType.add(BorderLayout.CENTER, btnLineColor);
         panelColorType.add(BorderLayout.CENTER, btnFillColor);
