@@ -21,6 +21,7 @@ public class Diamond extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
+        graphics2D.setStroke(new BasicStroke(this.lineThick));
         graphics2D.setColor(fillColor);
         graphics2D.fillPolygon(xPoints, yPoints, 4);
         graphics2D.setColor(lineColor);
