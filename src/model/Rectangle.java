@@ -9,8 +9,7 @@ public class Rectangle extends Shape{
     }
 
     @Override
-    public void drawShape(Graphics graphics){
-       Graphics2D graphics2D = (Graphics2D)graphics;
+    public void drawShape(Graphics2D graphics2D){
         AffineTransform transform = graphics2D.getTransform();
 
         if(this.isRotated()) {

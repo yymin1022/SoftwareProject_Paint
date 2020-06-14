@@ -83,7 +83,7 @@ public abstract class Shape{
         this.height = (int)Math.abs(endY - startY);
     }
 
-    public abstract void drawShape(Graphics graphics);
+    public abstract void drawShape(Graphics2D graphics2D);
     public abstract void moveShape(double movedX, double movedY);
     public abstract void resizeShape(double resizedX, double resizedY);
 }

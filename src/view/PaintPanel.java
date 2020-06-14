@@ -15,10 +15,12 @@ public class PaintPanel extends JPanel{
 
     @Override
     public void paint(Graphics graphics){
-        graphics.setColor(Color.WHITE);
-        graphics.fillRect(0,0, this.getWidth(),this.getHeight());
+        Graphics2D graphics2D = (Graphics2D)graphics;
+
+        graphics2D.setColor(Color.WHITE);
+        graphics2D.fillRect(0,0, this.getWidth(),this.getHeight());
         for(Shape shapes : shapeArrayList){
-            shapes.drawShape(graphics);
+            shapes.drawShape(graphics2D);
         }
         repaint();
     }

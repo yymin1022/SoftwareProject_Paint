@@ -10,11 +10,10 @@ public class Diamond extends Shape{
     }
 
     @Override
-    public void drawShape(Graphics graphics){
+    public void drawShape(Graphics2D graphics2D){
         int[] xPoints = {(int)(startX + endX) / 2, (int)endX, (int)(startX + endX) / 2, (int)startX};
         int[] yPoints = {(int)startY, (int)(startY + endY) / 2, (int)endY,(int)(startY + endY) / 2};
 
-        Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
 
         if(this.isRotated()){

@@ -9,11 +9,10 @@ public class Triangle extends Shape{
     }
 
     @Override
-    public void drawShape(Graphics graphics){
+    public void drawShape(Graphics2D graphics2D){
         int[] xPoints = {(int)(startX + endX) / 2, (int)startX, (int)endX};
         int[] yPoints = {(int)startY, (int)endY, (int)endY};
 
-        Graphics2D graphics2D = (Graphics2D)graphics;
         AffineTransform transform = graphics2D.getTransform();
 
         if(this.isRotated()){
