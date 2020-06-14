@@ -10,6 +10,7 @@ import view.PaintView;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 import java.util.ArrayList;
 
 public class PaintController{
@@ -44,8 +45,36 @@ public class PaintController{
         paintView.btnMove.addActionListener(e -> btnState = ButtonState.BTN_MOVE);
         paintView.btnRotate.addActionListener(e -> btnState = ButtonState.BTN_ROTATE);
         paintView.btnSize.addActionListener(e -> btnState = ButtonState.BTN_SIZE);
-        paintView.btnSave.addActionListener(e -> btnState = ButtonState.BTN_SAVE);
-        paintView.btnLoad.addActionListener(e -> btnState = ButtonState.BTN_LOAD);
+        paintView.btnSave.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                try{
+                    FileOutputStream fileOutputStream = new FileOutputStream("paint");
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                    objectOutputStream.writeObject(shapeArrayList);
+                    objectOutputStream.close();
+                }catch(IOException exception){
+                    System.out.println(exception.toString());
+                }
+            }
+        });
+        paintView.btnLoad.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    InputStream inputStream = new FileInputStream("paint");
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+                    ObjectInputStream objectInputStream = new ObjectInputStream(bufferedInputStream);
+
+                    ArrayList<Shape> loadedShapeList = (ArrayList<Shape>)objectInputStream.readObject();
+                    shapeArrayList.clear();
+                    shapeArrayList.addAll(loadedShapeList);
+                }catch(Exception exception){
+                    System.out.println(exception.toString());
+                }
+            }
+        });
     }
 
     public enum ButtonState{
@@ -134,26 +163,6 @@ public class PaintController{
             @Override
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
                 selectedShape.resizeShape(startX - endX, startY - endY);
-            }
-        }, BTN_SAVE{
-            @Override
-            public Shape addShape() {
-                return null;
-            }
-
-            @Override
-            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
-            }
-        }, BTN_LOAD{
-            @Override
-            public Shape addShape() {
-                return null;
-            }
-
-            @Override
-            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
             }
         };
 
