@@ -17,8 +17,9 @@ public class Circle extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics2D.setColor(lineColor);
+        graphics2D.setColor(fillColor);
         graphics2D.fillOval((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
+        graphics2D.setColor(lineColor);
         graphics2D.drawOval((int)Math.min(startX, endX), (int)Math.min(startY, endY), width, height);
         graphics2D.setTransform(transform);
     }

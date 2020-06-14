@@ -271,8 +271,6 @@ public class PaintController{
                     startY = e.getY();
                 }
             }
-
-            System.out.println(String.format("Current Point : %d, %d", e.getX(), e.getY()));
         }
 
         @Override
@@ -291,7 +289,7 @@ class ColorPickerFrame extends JFrame{
 
         ColorPicker colorPicker = new ColorPicker(true, true);
         colorPicker.setColor(Color.BLUE);
-        colorPicker.addColorListener(colorModel -> selectedShape.setColor(colorModel.getColor()));
+        colorPicker.addColorListener(colorModel -> selectedShape.setFillColor(colorModel.getColor()));
 
         colorPickerPanel.add(colorPicker);
 

@@ -20,8 +20,9 @@ public class Triangle extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics2D.setColor(lineColor);
+        graphics2D.setColor(fillColor);
         graphics2D.fillPolygon(xPoints, yPoints, 3);
+        graphics2D.setColor(lineColor);
         graphics2D.drawPolygon(xPoints, yPoints, 3);
         graphics2D.setTransform(transform);
     }

@@ -43,8 +43,11 @@ public abstract class Shape{
         return endY;
     }
 
-    public void setColor(Color lineColor, Color fillColor){
+    public void setLineColor(Color lineColor){
         this.lineColor = lineColor;
+    }
+
+    public void setFillColor(Color fillColor){
         this.fillColor = fillColor;
     }
 
