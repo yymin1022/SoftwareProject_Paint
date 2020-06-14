@@ -12,7 +12,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class PaintController{
     ButtonState btnState = ButtonState.BTN_MOUSE;
@@ -70,8 +69,6 @@ public class PaintController{
         paintView.btnColor.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                new ColorPickerFrame();
-
                 btnState = ButtonState.BTN_COLOR;
             }
         });
@@ -239,6 +236,8 @@ public class PaintController{
                 selectedShape = btnState.addShape();
                 selectedShape.setPoints(startX, startY, startX, startY);
                 shapeArrayList.add(selectedShape);
+            }else if(btnState == ButtonState.BTN_COLOR){
+                new ColorPickerFrame();
             }
         }
 
@@ -292,7 +291,7 @@ class ColorPickerFrame extends JFrame{
 
         ColorPicker colorPicker = new ColorPicker(true, true);
         colorPicker.setColor(Color.BLUE);
-        colorPicker.addColorListener(colorModel -> System.out.println(colorModel.getColor()));
+        colorPicker.addColorListener(colorModel -> PaintController.settedColor = colorModel.getColor());
 
         colorPickerPanel.add(colorPicker);
 
