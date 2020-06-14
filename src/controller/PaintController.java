@@ -8,6 +8,8 @@ import view.PaintPanel;
 import view.PaintView;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -237,7 +239,7 @@ public class PaintController{
                 selectedShape.setPoints(startX, startY, startX, startY);
                 shapeArrayList.add(selectedShape);
             }else if(btnState == ButtonState.BTN_COLOR){
-                new ColorPickerFrame(selectedShape);
+                new ColorTypeFrame(selectedShape);
             }
         }
 
@@ -280,21 +282,77 @@ public class PaintController{
     }
 }
 
-class ColorPickerFrame extends JFrame{
-    ColorPickerFrame(Shape selectedShape){
-        setTitle("Color Picker");
+class ColorTypeFrame extends JFrame{
+    ColorTypeFrame(Shape selectedShape){
+        JPanel panelColorType =  new JPanel();
+        JButton btnLineColor = new JButton("선 색상");
+        JButton btnFillColor = new JButton("면 색상");
+        JSlider sliderLineThick = new JSlider(10, 100);
 
-        JPanel colorPickerPanel =  new JPanel();
-        setContentPane(colorPickerPanel);
+        btnLineColor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LineColorPickerFrame(selectedShape);
+            }
+        });
+        btnFillColor.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new FillColorPickerFrame(selectedShape);
+            }
+        });
+        sliderLineThick.setMajorTickSpacing(20);
+        sliderLineThick.setPaintTicks(true);
+        sliderLineThick.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                selectedShape.setLineThick(sliderLineThick.getValue());
+            }
+        });
+
+        panelColorType.add(BorderLayout.CENTER, btnLineColor);
+        panelColorType.add(BorderLayout.CENTER, btnFillColor);
+
+        setContentPane(panelColorType);
+        setResizable(false);
+        setSize(400, 200);
+        setTitle("Color Type");
+        setVisible(true);
+    }
+}
+
+class LineColorPickerFrame extends JFrame{
+    LineColorPickerFrame(Shape selectedShape){
+        JPanel panelColorPicker =  new JPanel();
+
+        ColorPicker colorPicker = new ColorPicker(true, true);
+        colorPicker.setColor(Color.BLUE);
+        colorPicker.addColorListener(colorModel -> selectedShape.setLineColor(colorModel.getColor()));
+
+        panelColorPicker.add(colorPicker);
+
+        setContentPane(panelColorPicker);
+        setResizable(false);
+        setSize(600, 400);
+        setTitle("Color Picker");
+        setVisible(true);
+    }
+}
+
+class FillColorPickerFrame extends JFrame{
+    FillColorPickerFrame(Shape selectedShape){
+        JPanel panelColorPicker =  new JPanel();
 
         ColorPicker colorPicker = new ColorPicker(true, true);
         colorPicker.setColor(Color.BLUE);
         colorPicker.addColorListener(colorModel -> selectedShape.setFillColor(colorModel.getColor()));
 
-        colorPickerPanel.add(colorPicker);
+        panelColorPicker.add(colorPicker);
 
-        setSize(600, 400);
+        setContentPane(panelColorPicker);
         setResizable(false);
+        setSize(600, 400);
+        setTitle("Color Picker");
         setVisible(true);
     }
 }
