@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class PaintView {
     public ArrayList<model.Shape> shapeArrayList;
-    public JButton btnCircle, btnDiamond, btnMouse, btnRectangle, btnTriangle;
-    public JButton btnColor, btnJPEG, btnMove, btnRotate, btnSize;
+    public JButton btnCircle, btnDiamond, btnRectangle, btnTriangle;
+    public JButton btnColor, btnMove, btnRotate, btnSize, btnSave, btnLoad;
     public JFrame frameMain;
     public JPanel panelButton;
     public PaintPanel panelDraw;
@@ -21,25 +21,25 @@ public class PaintView {
 
         btnCircle = new JButton("원");
         btnDiamond = new JButton("마름모");
-        btnMouse = new JButton("곡선");
         btnRectangle = new JButton("사각형");
         btnTriangle = new JButton("삼각형");
         btnColor = new JButton("테두리/색상");
-        btnJPEG = new JButton("JPEG");
         btnMove = new JButton("이동");
         btnRotate = new JButton("회전");
         btnSize = new JButton("크기");
+        btnSave = new JButton("저장");
+        btnLoad = new JButton("불러오기");
 
         panelButton.add(btnCircle);
         panelButton.add(btnDiamond);
-        panelButton.add(btnMouse);
         panelButton.add(btnRectangle);
         panelButton.add(btnTriangle);
         panelButton.add(btnColor);
-        panelButton.add(btnJPEG);
         panelButton.add(btnMove);
         panelButton.add(btnRotate);
         panelButton.add(btnSize);
+        panelButton.add(btnSave);
+        panelButton.add(btnLoad);
 
         frameMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameMain.setSize(530, 600);

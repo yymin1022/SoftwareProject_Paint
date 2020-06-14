@@ -37,15 +37,15 @@ public class PaintController{
 
         paintView.btnCircle.addActionListener(e -> btnState = ButtonState.BTN_CIRCLE);
         paintView.btnDiamond.addActionListener(e -> btnState = ButtonState.BTN_DIAMOND);
-        paintView.btnMouse.addActionListener(e -> btnState = ButtonState.BTN_MOUSE);
         paintView.btnRectangle.addActionListener(e -> btnState = ButtonState.BTN_RECTANGLE);
         paintView.btnTriangle.addActionListener(e -> btnState = ButtonState.BTN_TRIANGLE);
 
         paintView.btnColor.addActionListener(e -> btnState = ButtonState.BTN_COLOR);
-        paintView.btnJPEG.addActionListener(e -> btnState = ButtonState.BTN_JPEG);
         paintView.btnMove.addActionListener(e -> btnState = ButtonState.BTN_MOVE);
         paintView.btnRotate.addActionListener(e -> btnState = ButtonState.BTN_ROTATE);
         paintView.btnSize.addActionListener(e -> btnState = ButtonState.BTN_SIZE);
+        paintView.btnSave.addActionListener(e -> btnState = ButtonState.BTN_SAVE);
+        paintView.btnLoad.addActionListener(e -> btnState = ButtonState.BTN_LOAD);
     }
 
     public enum ButtonState{
@@ -63,16 +63,6 @@ public class PaintController{
             @Override
             public Shape addShape() {
                 return new Diamond(settedLineColor, settedFillColor);
-            }
-
-            @Override
-            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
-            }
-        }, BTN_MOUSE{
-            @Override
-            public Shape addShape() {
-                return null;
             }
 
             @Override
@@ -100,16 +90,6 @@ public class PaintController{
 
             }
         }, BTN_COLOR{
-            @Override
-            public Shape addShape() {
-                return null;
-            }
-
-            @Override
-            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
-
-            }
-        }, BTN_JPEG{
             @Override
             public Shape addShape() {
                 return null;
@@ -154,6 +134,26 @@ public class PaintController{
             @Override
             public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
                 selectedShape.resizeShape(startX - endX, startY - endY);
+            }
+        }, BTN_SAVE{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
+
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
+            }
+        }, BTN_LOAD{
+            @Override
+            public Shape addShape() {
+                return null;
+            }
+
+            @Override
+            public void getAction(Shape selectedShape, double startX, double startY, double endX, double endY) {
+
             }
         };
 
