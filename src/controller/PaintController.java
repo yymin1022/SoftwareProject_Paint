@@ -1,11 +1,14 @@
 package controller;
 
+import com.bric.colorpicker.ColorPicker;
+import com.bric.colorpicker.ColorPickerDialog;
 import model.*;
 import model.Rectangle;
 import model.Shape;
 import view.PaintPanel;
 import view.PaintView;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
@@ -67,6 +70,8 @@ public class PaintController{
         paintView.btnColor.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+                new ColorPickerFrame();
+
                 btnState = ButtonState.BTN_COLOR;
             }
         });
@@ -275,5 +280,24 @@ public class PaintController{
         public void mouseMoved(MouseEvent e){
 
         }
+    }
+}
+
+class ColorPickerFrame extends JFrame{
+    ColorPickerFrame(){
+        setTitle("Color Picker");
+
+        JPanel colorPickerPanel =  new JPanel();
+        setContentPane(colorPickerPanel);
+
+        ColorPicker colorPicker = new ColorPicker(true, true);
+        colorPicker.setColor(Color.BLUE);
+        colorPicker.addColorListener(colorModel -> System.out.println(colorModel.getColor()));
+
+        colorPickerPanel.add(colorPicker);
+
+        setSize(600, 400);
+        setResizable(false);
+        setVisible(true);
     }
 }
