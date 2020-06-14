@@ -3,15 +3,16 @@ package model;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 
-public class Triangle extends Shape{
-    public Triangle(Color settedColor){
-        super(settedColor);
+public class Diamond extends Shape{
+
+    public Diamond(Color currentColor){
+        super(currentColor);
     }
 
     @Override
     public void drawShape(Graphics graphics){
-        int[] xPoints = {(int)(startX + endX) / 2, (int)startX, (int)endX};
-        int[] yPoints = {(int)startY, (int)endY, (int)endY};
+        int[] xPoints = {(int)(startX + endX) / 2, (int)endX, (int)(startX + endX) / 2, (int)startX};
+        int[] yPoints = {(int)startY, (int)(startY + endY) / 2, (int)endY,(int)(startY + endY) / 2};
 
         graphics.setColor(color);
 
@@ -22,20 +23,20 @@ public class Triangle extends Shape{
             graphics2D.rotate(rotateDegree, (startX + endX) / 2, (startY + endY) / 2);
         }
 
-        graphics.drawPolygon(xPoints, yPoints, 3);
+        graphics.drawPolygon(xPoints, yPoints, 4);
         graphics2D.setTransform(transform);
     }
 
     @Override
     public void moveShape(double movedX, double movedY){
         this.startX += movedX;
-        this.startY += movedY;
         this.endX += movedX;
+        this.startY += movedY;
         this.endY += movedY;
     }
 
     @Override
-    public void resizeShape(double resizedX, double resizedY){
-        this.setEndXY(endX + resizedX, endY = resizedY);
+    public void resizeShape(double movedX, double movedY){
+        this.setEndXY(endX + movedX, endY + movedY);
     }
 }

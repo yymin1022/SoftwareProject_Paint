@@ -1,6 +1,6 @@
 package controller;
 
-import model.Circle;
+import model.*;
 import model.Rectangle;
 import model.Shape;
 import view.PaintPanel;
@@ -110,7 +110,7 @@ public class PaintController{
         }, BTN_DIAMOND{
             @Override
             public Shape addShape() {
-                return null;
+                return new Diamond(settedColor);
             }
 
             @Override
@@ -140,7 +140,7 @@ public class PaintController{
         }, BTN_TRIANGLE{
             @Override
             public Shape addShape() {
-                return null;
+                return new Triangle(settedColor);
             }
 
             @Override
