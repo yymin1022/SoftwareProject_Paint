@@ -30,17 +30,6 @@ public class PaintView {
         btnRotate = new JButton("회전");
         btnSize = new JButton("크기");
 
-        btnCircle.setBounds(10, 10, 90, 50);
-        btnDiamond.setBounds(210, 10, 90, 50);
-        btnMouse.setBounds(410, 70, 90, 50);
-        btnRectangle.setBounds(110, 10, 90, 50);
-        btnTriangle.setBounds(310, 10, 90, 50);
-        btnColor.setBounds(10, 70, 90, 50);
-        btnJPEG.setBounds(410, 10, 90, 50);
-        btnMove.setBounds(210, 70, 90, 50);
-        btnRotate.setBounds(110, 70, 90, 50);
-        btnSize.setBounds(310, 70, 90, 50);
-
         panelButton.add(btnCircle);
         panelButton.add(btnDiamond);
         panelButton.add(btnMouse);
