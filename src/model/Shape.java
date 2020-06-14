@@ -8,7 +8,7 @@ public abstract class Shape{
     public double rotateDegree;
     public int width;
     public int height;
-    public int lineThick = 10;
+    public int lineThick = 5;
 
     public Color lineColor;
     public Color fillColor;

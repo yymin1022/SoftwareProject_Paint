@@ -236,7 +236,7 @@ class ColorTypeFrame extends JFrame{
         JButton btnLineColor = new JButton("선 색상");
         JButton btnFillColor = new JButton("면 색상");
         JLabel labelLineThick = new JLabel("선 두께");
-        JSlider sliderLineThick = new JSlider(1, 100, 10);
+        JSlider sliderLineThick = new JSlider(1, 100, 5);
 
         btnLineColor.addActionListener(e -> new LineColorPickerFrame(selectedShape));
         btnFillColor.addActionListener(e -> new FillColorPickerFrame(selectedShape));
