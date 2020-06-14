@@ -24,7 +24,7 @@ public abstract class Shape{
     }
 
     public boolean isRotated(){
-        return rotateDegree == 0;
+        return rotateDegree != 0;
     }
 
     public double getStartX(){
