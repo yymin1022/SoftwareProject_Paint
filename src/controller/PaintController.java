@@ -237,7 +237,7 @@ public class PaintController{
                 selectedShape.setPoints(startX, startY, startX, startY);
                 shapeArrayList.add(selectedShape);
             }else if(btnState == ButtonState.BTN_COLOR){
-                new ColorPickerFrame();
+                new ColorPickerFrame(selectedShape);
             }
         }
 
@@ -283,7 +283,7 @@ public class PaintController{
 }
 
 class ColorPickerFrame extends JFrame{
-    ColorPickerFrame(){
+    ColorPickerFrame(Shape selectedShape){
         setTitle("Color Picker");
 
         JPanel colorPickerPanel =  new JPanel();
@@ -291,7 +291,7 @@ class ColorPickerFrame extends JFrame{
 
         ColorPicker colorPicker = new ColorPicker(true, true);
         colorPicker.setColor(Color.BLUE);
-        colorPicker.addColorListener(colorModel -> PaintController.settedColor = colorModel.getColor());
+        colorPicker.addColorListener(colorModel -> selectedShape.setColor(colorModel.getColor()));
 
         colorPickerPanel.add(colorPicker);
 

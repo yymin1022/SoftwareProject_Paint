@@ -41,6 +41,10 @@ public abstract class Shape{
         return endY;
     }
 
+    public void setColor(Color color){
+        this.color = color;
+    }
+
     public void setRotateDegree(double rotateDegree){
         this.rotateDegree = rotateDegree;
     }
