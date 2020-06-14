@@ -287,7 +287,7 @@ class ColorTypeFrame extends JFrame{
         JPanel panelColorType =  new JPanel();
         JButton btnLineColor = new JButton("선 색상");
         JButton btnFillColor = new JButton("면 색상");
-        JSlider sliderLineThick = new JSlider(10, 100);
+        JSlider sliderLineThick = new JSlider(1, 100, 10);
 
         btnLineColor.addActionListener(new ActionListener() {
             @Override
@@ -301,7 +301,7 @@ class ColorTypeFrame extends JFrame{
                 new FillColorPickerFrame(selectedShape);
             }
         });
-        sliderLineThick.setMajorTickSpacing(20);
+        sliderLineThick.setMajorTickSpacing(10);
         sliderLineThick.setPaintTicks(true);
         sliderLineThick.addChangeListener(new ChangeListener() {
             @Override
@@ -312,6 +312,7 @@ class ColorTypeFrame extends JFrame{
 
         panelColorType.add(BorderLayout.CENTER, btnLineColor);
         panelColorType.add(BorderLayout.CENTER, btnFillColor);
+        panelColorType.add(BorderLayout.CENTER, sliderLineThick);
 
         setContentPane(panelColorType);
         setResizable(false);

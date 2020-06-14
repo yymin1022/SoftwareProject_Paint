@@ -8,6 +8,7 @@ public abstract class Shape{
     public double rotateDegree;
     public int width;
     public int height;
+    public int lineThick = 10;
 
     public Color lineColor;
     public Color fillColor;
@@ -45,6 +46,10 @@ public abstract class Shape{
 
     public void setLineColor(Color lineColor){
         this.lineColor = lineColor;
+    }
+
+    public void setLineThick(int lineThick){
+        this.lineThick = lineThick;
     }
 
     public void setFillColor(Color fillColor){
