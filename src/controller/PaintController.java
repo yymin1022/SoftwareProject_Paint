@@ -54,16 +54,7 @@ public class PaintController{
         paintView.btnLoad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try{
-                    InputStream inputStream = new FileInputStream("paint");
-                    BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-                    ObjectInputStream objectInputStream = new ObjectInputStream(bufferedInputStream);
-
-                    shapeArrayList.clear();
-                    shapeArrayList.addAll((ArrayList<Shape>)objectInputStream.readObject());
-                }catch(Exception exception){
-                    System.out.println(exception.toString());
-                }
+                new FileLoadFrame(shapeArrayList);
             }
         });
     }
@@ -270,13 +261,35 @@ class FileSaveFrame extends JFrame{
 class FileLoadFrame extends JFrame{
     FileLoadFrame(ArrayList<Shape> selectedShape){
         JPanel panelFileLoad = new JPanel();
+        JTextField textFieldFileName = new JTextField();
+        JButton btnFileName = new JButton("불러오기");
+
+        btnFileName.addActionListener(e -> {
+            String fileName = textFieldFileName.getText();
+
+            try{
+                InputStream inputStream = new FileInputStream(String.format("%s.yym", fileName));
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+                ObjectInputStream objectInputStream = new ObjectInputStream(bufferedInputStream);
+
+                selectedShape.clear();
+                selectedShape.addAll((ArrayList<Shape>)objectInputStream.readObject());
+            }catch(Exception exception){
+                System.out.println(exception.toString());
+            }
+        });
+
+        textFieldFileName.setBounds(25, 10, 150, 30);
+        btnFileName.setBounds(65, 50, 70, 30);
 
         panelFileLoad.setLayout(null);
+        panelFileLoad.add(textFieldFileName);
+        panelFileLoad.add(btnFileName);
 
         setContentPane(panelFileLoad);
         setResizable(false);
-        setSize(200, 100);
-        setTitle("File Save");
+        setSize(200, 150);
+        setTitle("File Load");
         setVisible(true);
     }
 }
