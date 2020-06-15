@@ -48,15 +48,7 @@ public class PaintController{
         paintView.btnSave.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
-                try{
-                    FileOutputStream fileOutputStream = new FileOutputStream("paint");
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-
-                    objectOutputStream.writeObject(shapeArrayList);
-                    objectOutputStream.close();
-                }catch(IOException exception){
-                    System.out.println(exception.toString());
-                }
+                new FileSaveFrame(shapeArrayList);
             }
         });
         paintView.btnLoad.addActionListener(new ActionListener() {
@@ -67,9 +59,8 @@ public class PaintController{
                     BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
                     ObjectInputStream objectInputStream = new ObjectInputStream(bufferedInputStream);
 
-                    ArrayList<Shape> loadedShapeList = (ArrayList<Shape>)objectInputStream.readObject();
                     shapeArrayList.clear();
-                    shapeArrayList.addAll(loadedShapeList);
+                    shapeArrayList.addAll((ArrayList<Shape>)objectInputStream.readObject());
                 }catch(Exception exception){
                     System.out.println(exception.toString());
                 }
@@ -236,6 +227,57 @@ public class PaintController{
         public void mouseMoved(MouseEvent e){
 
         }
+    }
+
+
+}
+
+class FileSaveFrame extends JFrame{
+    FileSaveFrame(ArrayList<Shape> selectedShape){
+        JPanel panelFileSave = new JPanel();
+        JTextField textFieldFileName = new JTextField();
+        JButton btnFileName = new JButton("저장");
+
+        btnFileName.addActionListener(e -> {
+            String fileName = textFieldFileName.getText();
+
+            try{
+                FileOutputStream fileOutputStream = new FileOutputStream(String.format("%s.yym", fileName));
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+                objectOutputStream.writeObject(selectedShape);
+                objectOutputStream.close();
+            }catch(IOException exception){
+                System.out.println(exception.toString());
+            }
+        });
+
+        textFieldFileName.setBounds(25, 10, 150, 30);
+        btnFileName.setBounds(65, 50, 70, 30);
+
+        panelFileSave.setLayout(null);
+        panelFileSave.add(textFieldFileName);
+        panelFileSave.add(btnFileName);
+
+        setContentPane(panelFileSave);
+        setResizable(false);
+        setSize(220, 150);
+        setTitle("File Save");
+        setVisible(true);
+    }
+}
+
+class FileLoadFrame extends JFrame{
+    FileLoadFrame(ArrayList<Shape> selectedShape){
+        JPanel panelFileLoad = new JPanel();
+
+        panelFileLoad.setLayout(null);
+
+        setContentPane(panelFileLoad);
+        setResizable(false);
+        setSize(200, 100);
+        setTitle("File Save");
+        setVisible(true);
     }
 }
 
