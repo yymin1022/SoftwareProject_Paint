@@ -238,8 +238,10 @@ class FileSaveFrame extends JFrame{
 
                 objectOutputStream.writeObject(selectedShape);
                 objectOutputStream.close();
+
+                this.dispose();
             }catch(IOException exception){
-                System.out.println(exception.toString());
+                JOptionPane.showMessageDialog(null, exception.toString(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
@@ -274,8 +276,10 @@ class FileLoadFrame extends JFrame{
 
                 selectedShape.clear();
                 selectedShape.addAll((ArrayList<Shape>)objectInputStream.readObject());
+
+                this.dispose();
             }catch(Exception exception){
-                System.out.println(exception.toString());
+                JOptionPane.showMessageDialog(null, exception.toString(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
