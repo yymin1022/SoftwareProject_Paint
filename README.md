@@ -2,8 +2,8 @@
 
 ### 2020-1학기 소프트웨어프로젝트 기말과제
 
-<img src="Images/app_1.png" width="30%" height="30%" alt="Screenshot"></img>
-<img src="Images/app_2.png" width="30%" height="30%" alt="Screenshot"></img>
+<img src="Images/app_1.jpg" width="30%" height="30%" alt="Screenshot"></img>
+<img src="Images/app_2.jpg" width="30%" height="30%" alt="Screenshot"></img>
 
 2020-1학기 소프트웨어프로젝트 과목의 기말고사 대체과제로 개발한
 그림판 프로그램입니다.
